@@ -1,7 +1,11 @@
 // Karma configuration
 
+var webpack = require("webpack");
+var RewirePlugin  = require("rewire-webpack");
 var webpackConfig = require("./webpack/webpack.prod.config.js");
+
 webpackConfig.devtool = "inline-source-map";
+webpackConfig.plugins.push(new RewirePlugin());
 
 module.exports = function(config) {
   config.set({
